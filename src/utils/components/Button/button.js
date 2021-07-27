@@ -19,7 +19,12 @@ export default function Button({data}){
             type={typeValue}
         >
             { buttonTextValue }
-            { showLoading && <div className="lds-dual-ring"></div> }
+            { showLoading && (
+                <i
+                    className="fa fa-refresh fa-spin"
+                    style={{ marginLeft: "5px" }}
+                />
+            )}
         </button>
     );
 }
