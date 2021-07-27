@@ -16,7 +16,7 @@ export default function FormInput({data}){
         } = {} //default value if not sent: {}
     } = data;
     return (
-        <div>
+        <>
             <label> {labelTextValue} </label>
             <input 
                 type={inputTypeValue} 
@@ -24,6 +24,6 @@ export default function FormInput({data}){
                 value={inputValue} 
                 onChange={onChangeFunc}
             ></input>
-        </div>
+        </>
     );
 }
