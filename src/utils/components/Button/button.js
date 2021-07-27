@@ -1,5 +1,6 @@
 import { React } from 'react';
-import './button.styles.css';
+import { buttonStyle } from './button.styles.js'
+
 
 
 export default function Button({data}){
@@ -14,6 +15,7 @@ export default function Button({data}){
 
     return (
         <button 
+            className={buttonStyle}
             onClick={buttonOnClickFunc}
             disabled={disabledValue}
             type={typeValue}
