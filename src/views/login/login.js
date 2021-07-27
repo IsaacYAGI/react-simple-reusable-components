@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import FormInput from '../../utils/components/FormInput/form-input';
+import FormInput from '@utils/components/FormInput/form-input';
 
 export default function Login(){
     
