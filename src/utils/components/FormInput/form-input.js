@@ -6,7 +6,7 @@ export default function FormInput({data}){
             text:labelTextValue = ""
         } = {}, //default value if not sent: {}
         input:{
-            type:inputTypeValue = "number",
+            type:inputTypeValue = "text",
             placeholder: placeHolderValue = "",
             value: inputValue = "",
             onChange: onChangeFunc = (event) => {
