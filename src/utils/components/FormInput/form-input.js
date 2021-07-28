@@ -25,6 +25,7 @@ export default function FormInput({data}){
                 value={inputValue} 
                 onChange={onChangeFunc}
             ></input>
+            { hasErrorValue && <span>Please check the value</span>}
         </>
     );
 }

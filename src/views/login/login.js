@@ -6,15 +6,17 @@ export default function Login(){
     
     const [emailValue, setEmailValue] = useState("");
     const [password, setPassword] = useState("");
-    const [formValid, setFormValid] = useState(false);
-    const [pristineValue, setPristineValue] = useState(true);
+    const [emailValid, setEmailValid] = useState(false);
+    const [passwordValid, setPasswordValid] = useState(false);
+    const [pristineEmailValue, setPristineEmailValue] = useState(true);
+    const [pristinePasswordValue, setPristinePasswordValue] = useState(true);
     const [buttonLoading, setButtonLoading] = useState(false)
 
     useEffect(()=>{
-        if (emailValue === "" || password === "") setFormValid(false); else setFormValid(true)
-        setPristineValue(false)
-        console.log("pristine status changed",pristineValue);
-        console.log("validity status changed",formValid);
+        if (emailValue === "") setEmailValid(false); else setEmailValid(true)
+        if (password === "") setPasswordValid(false); else setPasswordValid(true)
+        console.log("pristine status changed",pristineEmailValue);
+        console.log("validity status changed",emailValid);
     },[emailValue,password])
 
 
@@ -26,8 +28,11 @@ export default function Login(){
             type: "text",
             placeholder: "Please insert your email...",
             value: emailValue,
-            onChange: (event) => setEmailValue(event.target.value),
-            hasError: !formValid && !pristineValue
+            onChange: (event) => {
+                setPristineEmailValue(false)
+                setEmailValue(event.target.value)
+            },
+            hasError: !emailValid && !pristineEmailValue
         }
     }
 
@@ -39,7 +44,11 @@ export default function Login(){
             type: "password",
             placeholder: "Please insert your password...",
             value: password,
-            onChange: (event) => setPassword(event.target.value)
+            onChange: (event) => {
+                setPristinePasswordValue(false)
+                setPassword(event.target.value)
+            },
+            hasError: !passwordValid && !pristinePasswordValue
         }
     }
 
@@ -56,7 +65,7 @@ export default function Login(){
         typeValue: "button",
         buttonOnClickFunc: fetchApi, 
         showLoading: buttonLoading, 
-        disabledValue: buttonLoading || !formValid
+        disabledValue: buttonLoading || !emailValid || !passwordValid
     }
     return (
         <>
