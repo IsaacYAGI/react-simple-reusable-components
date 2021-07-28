@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from 'react';
 import FormInput from '@utils/components/FormInput/form-input';
 import Button from '@utils/components/Button/button';
+import { spaceBetween } from './login.styles'
+
 
 export default function Login(){
     
@@ -69,22 +71,28 @@ export default function Login(){
     }
     return (
         <>
-            <div>Hello from login </div>
                 
             <form>
-                <div>
+                <div 
+                    className={spaceBetween}
+                    >
 
                 <FormInput
                     data={inputEmailConfig}
                 ></FormInput>
                 </div>
-                <div>
+                <div
+                    className={spaceBetween}
+                >
 
                 <FormInput
                     data={inputPasswordConfig}
                 ></FormInput>
                 </div>
-                <div>
+                <div
+                    className={spaceBetween}
+                
+                >
                     <Button
                         data={buttonSubmitConfig}
                     >

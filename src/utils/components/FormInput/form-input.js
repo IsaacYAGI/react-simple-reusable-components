@@ -1,4 +1,5 @@
 import { React } from 'react';
+import { formInputStyle } from './form-input.styles'
 
 export default function FormInput({data}){
     const  {
@@ -16,16 +17,25 @@ export default function FormInput({data}){
 
         } = {} //default value if not sent: {}
     } = data;
+
     return (
-        <>
+        <div className={formInputStyle}>
+            <div>
+
             <label> {labelTextValue} </label>
+            </div>
+            <div>
+
             <input 
                 type={inputTypeValue} 
                 placeholder={placeHolderValue} 
                 value={inputValue} 
                 onChange={onChangeFunc}
             ></input>
-            { hasErrorValue && <span>Please check the value</span>}
-        </>
+            </div>
+            <div>
+                { hasErrorValue && <span>Please check the value</span>}
+            </div>
+        </div>
     );
 }
